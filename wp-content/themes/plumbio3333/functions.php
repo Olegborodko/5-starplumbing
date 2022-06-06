@@ -387,3 +387,15 @@ function aioseo_filter_meta($value) {
 }
 add_filter( 'aioseo_description', 'aioseo_filter_meta' );
 add_filter( 'aioseo_title', 'aioseo_filter_meta' );
+
+
+function aioseo_add_sitemap_index( $indexes ) {
+	foreach ($indexes as $key => $index) {
+		if (strpos($index['loc'], 'category-sitemap.xml') !== false) {
+			unset($indexes[$key]);
+		}
+	}
+
+	return $indexes;
+}
+add_filter( 'aioseo_sitemap_indexes', 'aioseo_add_sitemap_index' );
