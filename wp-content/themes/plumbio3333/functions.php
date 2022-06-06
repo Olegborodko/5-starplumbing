@@ -341,3 +341,49 @@ if ( ! function_exists( 'plumbio_register_elementor_locations' ) ) {
 }
 
 add_action( 'elementor/theme/register_locations', 'plumbio_register_elementor_locations' );
+
+function change_robots_meta_value($robots_meta_value) {
+	if (is_paged()) {
+		$robots_meta_value['noindex'] = 'index';
+		$robots_meta_value['nofollow'] = 'follow';
+	}
+	
+	return $robots_meta_value;
+}
+add_filter( 'aioseo_robots_meta', 'change_robots_meta_value' );
+
+function aioseo_filter_meta($value) {
+	global $paged;
+
+
+	$sitename = get_bloginfo('name');
+	$obj = get_queried_object();
+	$type = get_class($obj);
+	$name = '';
+
+	switch ($type) {
+		case 'WP_Post':
+			$name = $obj->post_title;
+			break;
+		
+		case 'WP_Term':
+			$name = $obj->name;
+			break;
+	}
+	
+	if (is_paged()) {
+		switch (current_filter()) {
+			case 'aioseo_description':
+				$value = $name . ' - page ' . $paged;
+				break;
+
+			case 'aioseo_title':
+				$value = $name . ' - page ' . $paged . ' | ' . $sitename;
+				break;
+		}
+	}
+
+	return $value;
+}
+add_filter( 'aioseo_description', 'aioseo_filter_meta' );
+add_filter( 'aioseo_title', 'aioseo_filter_meta' );
