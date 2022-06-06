@@ -1,0 +1,14 @@
+{
+    "name": "plumbio/plumbio-core",
+    "description": "A plugin for plumbio WordPress Theme",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Plumbio\\Helper\\": "includes/"
+        },
+        "files": [ "includes/functions.php" ]
+    }
+}
