@@ -372,7 +372,7 @@ function aioseo_filter_meta($value) {
 				break;
 		}
 		
-		if (is_paged()) {
+		if (is_paged() && !empty($name)) {
 			switch (current_filter()) {
 				case 'aioseo_description':
 					$value = $name . ' - page ' . $paged;
