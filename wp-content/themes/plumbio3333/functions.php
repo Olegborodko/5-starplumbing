@@ -355,31 +355,33 @@ add_filter( 'aioseo_robots_meta', 'change_robots_meta_value' );
 function aioseo_filter_meta($value) {
 	global $paged;
 
-
 	$sitename = get_bloginfo('name');
 	$obj = get_queried_object();
-	$type = get_class($obj);
-	$name = '';
 
-	switch ($type) {
-		case 'WP_Post':
-			$name = $obj->post_title;
-			break;
-		
-		case 'WP_Term':
-			$name = $obj->name;
-			break;
-	}
+	if (gettype($obj) == 'object') {
+		$type = get_class($obj);
+		$name = '';
 	
-	if (is_paged()) {
-		switch (current_filter()) {
-			case 'aioseo_description':
-				$value = $name . ' - page ' . $paged;
+		switch ($type) {
+			case 'WP_Post':
+				$name = $obj->post_title;
 				break;
-
-			case 'aioseo_title':
-				$value = $name . ' - page ' . $paged . ' | ' . $sitename;
+			
+			case 'WP_Term':
+				$name = $obj->name;
 				break;
+		}
+		
+		if (is_paged()) {
+			switch (current_filter()) {
+				case 'aioseo_description':
+					$value = $name . ' - page ' . $paged;
+					break;
+	
+				case 'aioseo_title':
+					$value = $name . ' - page ' . $paged . ' | ' . $sitename;
+					break;
+			}
 		}
 	}
 
@@ -399,3 +401,45 @@ function aioseo_add_sitemap_index( $indexes ) {
 	return $indexes;
 }
 add_filter( 'aioseo_sitemap_indexes', 'aioseo_add_sitemap_index' );
+
+
+function aioseo_filter_canonical_url( $canonical_url ) {
+	$custom_canonical = [
+		'/author/admin/page/10/' => '/blog/',
+		'/author/admin/page/11/' => '/blog/',
+		'/author/admin/page/12/' => '/blog/',
+		'/author/admin/page/13/' => '/blog/',
+		'/author/admin/page/2/' => '/blog/',
+		'/author/admin/page/3/' => '/blog/',
+		'/author/admin/page/4/' => '/blog/',
+		'/author/admin/page/5/' => '/blog/',
+		'/author/admin/page/6/' => '/blog/',
+		'/author/admin/page/7/' => '/blog/',
+		'/author/admin/page/8/' => '/blog/',
+		'/author/admin/page/9/' => '/blog/',
+		'/category/blog/' => '/blog/',
+		'/category/blog/page/10/' => '/blog/',
+		'/category/blog/page/11/' => '/blog/',
+		'/category/blog/page/12/' => '/blog/',
+		'/category/blog/page/2/' => '/blog/',
+		'/category/blog/page/3/' => '/blog/',
+		'/category/blog/page/4/' => '/blog/',
+		'/category/blog/page/5/' => '/blog/',
+		'/category/blog/page/6/' => '/blog/',
+		'/category/blog/page/7/' => '/blog/',
+		'/category/blog/page/8/' => '/blog/',
+		'/category/blog/page/9/' => '/blog/',
+		'/category/uncategorized/' => '/blog/',
+	];
+
+	foreach ($custom_canonical as $url => $canonical) {
+		$domain = get_home_url();
+
+		if ($domain . $url == $canonical_url) {
+			return $domain . $canonical;
+		}
+	}
+
+	return $canonical_url;
+}
+add_filter( 'aioseo_canonical_url', 'aioseo_filter_canonical_url' );
