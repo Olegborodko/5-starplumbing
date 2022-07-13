@@ -955,5 +955,10 @@
 			});
 		}
 		  
-	
+		$('.google-business-reviews-rating .listing').slick({
+			 infinite: true,
+			  dots: true,
+			 slidesToShow: 3,
+			 slidesToScroll: 3
+		});
 	})(jQuery);
