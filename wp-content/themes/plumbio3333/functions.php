@@ -443,3 +443,14 @@ function aioseo_filter_canonical_url( $canonical_url ) {
 	return $canonical_url;
 }
 add_filter( 'aioseo_canonical_url', 'aioseo_filter_canonical_url' );
+
+add_filter('bcn_breadcrumb_title','cp_bcn', 10,3);
+function cp_bcn($title, $type, $id) {
+	
+	$ankor = ($id) ? get_field('ankor_for_breadcrumbs',$id) : $title;
+	
+	if ($ankor) $title = $ankor;
+	
+	return $title;
+
+}
