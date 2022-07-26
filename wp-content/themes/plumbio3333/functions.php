@@ -454,3 +454,11 @@ function cp_bcn($title, $type, $id) {
 	return $title;
 
 }
+add_action( 'wp_enqueue_scripts', 'add_slick_slider' );
+function add_slick_slider(){
+	// подключаем файл стилей темы
+	wp_enqueue_style( 'slick', get_template_directory_uri() .'/assets/css/slick.css' );
+	wp_enqueue_style( 'slick-theme', get_template_directory_uri() .'/assets/css/slick-theme.css' );
+	// подключаем js файл темы
+	wp_enqueue_script( 'slick', get_template_directory_uri() .'/assets/js/slick.min.js', array(), '1.0', true );
+}
