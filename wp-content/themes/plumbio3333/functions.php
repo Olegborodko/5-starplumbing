@@ -462,3 +462,30 @@ function add_slick_slider(){
 	// подключаем js файл темы
 	wp_enqueue_script( 'slick', get_template_directory_uri() .'/assets/js/slick.min.js', array(), '1.0', true );
 }
+add_action( 'wp_enqueue_scripts', 'remove_unused_script' );
+function remove_unused_script(){
+	if (is_admin()) return;
+	if (is_front_page())
+	{
+		
+		wp_dequeue_style( 'google-fonts-1' );
+		wp_deregister_style( 'google-fonts-1' );
+		wp_dequeue_style( 'plumbio-google-fonts' );
+		wp_deregister_style( 'plumbio-google-fonts' );
+		wp_dequeue_style( 'rplg-css' );
+		wp_deregister_style( 'rplg-css' );
+		wp_dequeue_style( 'wc-blocks-style' );
+		wp_deregister_style( 'wc-blocks-style' );
+		wp_dequeue_style( 'swiper-css' );
+		wp_deregister_style( 'swiper-css' );
+		wp_dequeue_style( 'plumbio-style-blog' );
+		wp_deregister_style( 'plumbio-style-blog' );
+		
+	}
+}
+/**
+ * Prevent Elementor from loading Google Fonts in the frontend.
+ *
+ * @since 1.0.0
+ */
+add_filter( 'elementor/frontend/print_google_fonts', '__return_false' );
