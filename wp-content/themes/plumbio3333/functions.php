@@ -446,14 +446,11 @@ add_filter( 'aioseo_canonical_url', 'aioseo_filter_canonical_url' );
 
 add_filter('bcn_breadcrumb_title','cp_bcn', 10,3);
 function cp_bcn($title, $type, $id) {
-	
 	$ankor = ($id) ? get_field('ankor_for_breadcrumbs',$id) : $title;
-	
 	if ($ankor) $title = $ankor;
-	
 	return $title;
-
 }
+
 add_action( 'wp_enqueue_scripts', 'add_slick_slider' );
 function add_slick_slider(){
 	// подключаем файл стилей темы
@@ -489,3 +486,8 @@ function remove_unused_script(){
  * @since 1.0.0
  */
 add_filter( 'elementor/frontend/print_google_fonts', '__return_false' );
+
+//Удаляем category из УРЛа категорий
+add_filter( 'category_link', function($a){
+	return str_replace( 'category/', '', $a );
+}, 99 );

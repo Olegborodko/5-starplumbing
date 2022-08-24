@@ -11044,3 +11044,9 @@ body{
 	user-select: none !important;
 	transition: all .2s ease-in-out !important;
 }
+div.tt-breadcrumbs {
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}

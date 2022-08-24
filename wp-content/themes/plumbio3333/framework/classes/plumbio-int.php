@@ -245,11 +245,11 @@ class Plumbio_Int {
 							</picture>
 							<?php } ?>
 							<div class="container">
-								<h1 class="tt-pagetitle__title"><?php echo sprintf( __( '%s', 'plumbio' ), $breadcrumb_title ); ?></div>
+								<h1 class="tt-pagetitle__title"><?php echo sprintf( __( '%s', 'plumbio' ), $breadcrumb_title ); ?></h1></div>
 								<?php if ( function_exists( 'bcn_display' ) ) : ?>
-								<ul class="tt-breadcrumbs">
+								<div class="tt-breadcrumbs">
 									<?php bcn_display(); ?>
-								</ul>
+								</div>
 								<?php endif; ?>
 							</div>
 						</div>

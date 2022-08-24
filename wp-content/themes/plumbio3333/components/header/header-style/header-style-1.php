@@ -152,7 +152,7 @@ if ( $header_sidebar_onoff ) {
 					<div class="h-infobox">
 						<span class="tt-text"><?php echo esc_html( $header_phone_title ); ?></span>
 						<address>
-							<a href="tel:<?php echo esc_attr( $header_phone_number ); ?>">
+							<a href="tel:+<?php echo preg_replace("/[^0-9]/", '', esc_attr( $header_phone_number )); ?>">
 							<i>
 								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 								viewBox="0 0 401.998 401.998" style="enable-background:new 0 0 401.998 401.998;"
