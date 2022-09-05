@@ -11050,3 +11050,107 @@ div.tt-breadcrumbs {
     width: 100%;
     text-align: center;
 }
+.wp-yrw.wpac
+{
+	position: fixed!important;
+    right: 30px!important;
+    bottom: 30px!important;
+    max-width: none!important;
+    z-index: 2147482999!important;
+	background: #fff!important;
+	max-height: 85%!important;
+	overflow: hidden!important;
+}
+.wp-yrw .wp-yelp-content-inner
+{
+	display:none;
+	height:0;
+}
+.wp-yelp-reviews
+{
+	overflow-y: scroll!important;
+}
+.wp-yrw .wp-yelp-content-inner.open
+{
+	display:block!important;
+	height:100%;
+	
+	
+	position: absolute !important;
+	top: 0 !important;
+	right: 0 !important;
+	bottom: 0 !important;
+	width: 100% !important;
+	background: rgba(250,250,251,.98) !important;
+	border-left: 1px solid #dadee2 !important;
+	box-shadow: 0 0 4px 1px rgba(0,0,0,.08) !important;
+	z-index: 2147483000 !important;
+	
+}
+.wp-yrw .wp-yelp-list
+{
+	width: 300px !important;
+	background-color: #fff !important;
+	top: 30px !important;
+}
+.wp-yrw .wp-yelp-list.open
+{
+	position: fixed !important;
+	bottom: 0 !important;
+	right: 20px !important;
+	height: 100% !important;
+	z-index: 2147483000 !important;
+}
+.wp-yrw .wp-yelp-list.open .wp-yelp-place
+{
+	position: absolute !important;
+	top: 0 !important;
+	right: 0 !important;
+	width: 100% !important;
+	height: 80px !important;
+	background: #fff !important;
+	padding: 10px 16px !important;
+	overflow: hidden !important;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,.12) !important;
+	z-index: 2147483002 !important;
+}
+.wp-yrw .wp-yelp-list.open .wp-yelp-reviews
+{
+	position: absolute !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    overflow-y: auto !important;
+    z-index: 2147483001 !important;
+    -webkit-transform: translateZ(0) !important;
+    top: 80px !important;
+    bottom: 48px !important;
+	
+}
+.
+{
+	
+}
+
+.wp-yrw .wp-yelp-place:before
+{
+	width: 100%!important;
+    height: 6px!important;
+    background: #4fce6a!important;
+	content:'';
+	position: absolute;
+	top: 0;
+	left:0;
+}
+.wp-yrw .wp-yelp-place,
+.wp-yrw .wp-yelp-list.open .wp-yelp-reviews
+{
+	padding: 10px 16px !important;
+}
+.elementor-749 .elementor-element.elementor-element-351f76d {
+    z-index: 999;
+    width: 300px;
+    max-width: 300px;
+    bottom:20px;
+	top:auto;
+	right:20px !important;
+}
