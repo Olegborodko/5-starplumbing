@@ -168,6 +168,14 @@
 			}
 		});
 	});
+	jQuery( document ).on( "click",".wp-yelp-place", function(e) {
+		
+		e.preventDefault();
+		$('.wp-yelp-content-inner').toggleClass('open');
+		$('.wp-yelp-list').toggleClass('open');
+		
+	});
+	
 	
 	(function(){
 		var objPopup = document.querySelectorAll("#tt-pageContent .glightbox");
