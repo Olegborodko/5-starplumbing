@@ -39,7 +39,7 @@ if ( $header_sidebar_onoff ) {
 				</div>
 			</div>
 			<?php } ?>
-			<?php if (( $header_social_twitter || $header_social_facebook || $header_social_linkedin || $header_social_skype ) && (false) ) { ?>
+			<?php if (( $header_social_twitter || $header_social_facebook || $header_social_linkedin || $header_social_skype )  ) { ?>
 			<div class="tt-col">
 				<div class="h-icon">
 					<?php if ( $header_social_title ) { ?>
