@@ -11154,3 +11154,17 @@ div.tt-breadcrumbs {
 	top:auto;
 	right:20px !important;
 }
+
+.elementor-widget-text-editor h2,.elementor-widget-text-editor h3,.elementor-widget-text-editor h4
+{
+	padding: 10px;
+}
+
+.whatsapp_btn{display:none;}
+
+@media (max-width: 768px){
+	.whatsapp_btn{
+		display:inline-block;
+		margin-right: 10px;
+	}
+}

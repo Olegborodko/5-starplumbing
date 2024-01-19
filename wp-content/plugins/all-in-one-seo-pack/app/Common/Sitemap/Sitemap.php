@@ -447,7 +447,8 @@ class Sitemap {
 	public function headers() {
 		$charset = get_option( 'blog_charset' );
 		header( "Content-Type: text/xml; charset=$charset", true );
-		header( 'X-Robots-Tag: noindex, follow', true );
+		//header( 'X-Robots-Tag: noindex, follow', true );
+		header( 'X-Robots-Tag: index, follow', true );
 	}
 
 	/**

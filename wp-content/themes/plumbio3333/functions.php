@@ -402,7 +402,7 @@ function aioseo_add_sitemap_index( $indexes ) {
 }
 add_filter( 'aioseo_sitemap_indexes', 'aioseo_add_sitemap_index' );
 
-
+/*
 function aioseo_filter_canonical_url( $canonical_url ) {
 	$custom_canonical = [
 		'/author/admin/page/10/' => '/blog/',
@@ -443,7 +443,7 @@ function aioseo_filter_canonical_url( $canonical_url ) {
 	return $canonical_url;
 }
 add_filter( 'aioseo_canonical_url', 'aioseo_filter_canonical_url' );
-
+*/
 add_filter('bcn_breadcrumb_title','cp_bcn', 10,3);
 function cp_bcn($title, $type, $id) {
 	$ankor = ($id) ? get_field('ankor_for_breadcrumbs',$id) : $title;
@@ -491,3 +491,24 @@ add_filter( 'elementor/frontend/print_google_fonts', '__return_false' );
 add_filter( 'category_link', function($a){
 	return str_replace( 'category/', '', $a );
 }, 99 );
+
+
+/*редиректы*/
+function uri_lcase() {
+    if (preg_match('/[A-Z]/', $_SERVER['REQUEST_URI'])) {
+        header('Location: '.strtolower($_SERVER['REQUEST_URI']), true, 301);
+        exit;
+    }
+}
+add_action('init', 'uri_lcase');
+
+//добавляем index, follow
+add_filter( 'aioseo_robots_meta', 'aioseo_filter_robots_meta' );
+
+function aioseo_filter_robots_meta( $attributes ) {
+   if ( is_author() ) {
+      $attributes['noindex']  = 'index';
+      $attributes['nofollow'] = 'follow';
+   }
+   return $attributes;
+}

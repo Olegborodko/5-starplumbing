@@ -969,4 +969,16 @@
 			 slidesToShow: 3,
 			 slidesToScroll: 3
 		});
+		$(document).on('click', 'a', function() {
+			// Регулярное выражение для определения, ваш ли это сайт? (нужно изменить)
+			var site = /5-starplumbing\.com/;
+			
+			// Получаем направление ссылки
+			var href = $(this).attr('href');
+			
+			// Работаем только если ссылка абсолютная, и ведёт не на наш сайт
+			if (/^(http|https|ftp)/.test(href) && !site.test(href)) {
+				$(this).attr('target', '_blank');
+			}
+		})
 	})(jQuery);
