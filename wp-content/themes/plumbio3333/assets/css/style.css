@@ -11162,9 +11162,96 @@ div.tt-breadcrumbs {
 
 .whatsapp_btn{display:none;}
 
+div.pl-header-city{
+  text-align: center;
+  margin: 12px 37px 0 0;
+  color: #0C4C93;
+  font-family: "Roboto", Sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+div.pl-header-city :nth-child(2){
+  position: relative;
+  top: 5px;
+}
+
 @media (max-width: 768px){
 	.whatsapp_btn{
 		display:inline-block;
 		margin-right: 10px;
 	}
+
+  a.pl_header_phone_2{
+		position: relative;
+		left: 39px;
+	}
+
+  div.pl-header-city :nth-child(2){
+    top: 0;
+  }
+
+  .pl_block_desktop_menu{
+    flex: auto;
+  }
+
+  div.pl-header-city{
+    font-size: 16px;
+    margin: 9px 10px 0 0;
+  }
+}
+
+@media (max-width: 540px){
+  div.tt-obj-logo{
+    min-width: 100px;
+  }
+
+  .sticky-header .tt-obj-logo{
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 440px){
+  div.pl-header-city{
+    margin: 9px 4px 0 0;
+    font-size: 12px;
+    position: relative;
+    left: -4px;
+  }
+
+  div.tt-obj-logo{
+    min-width: 60px;
+  }
+
+  .sticky-header .tt-obj-logo{
+    min-width: 60px;
+  }
+
+  .tt-obj-logo img{
+    max-width: 38px;
+  }
+
+  .tt-logo__alignment{
+    left: 3px;
+  }
+
+  .sticky-header .tt-logo__alignment{
+    left: 3px;
+  }
+
+  div.tt-header-holder a.whatsapp_btn{
+    display: none;
+  }
+
+  a.pl_header_phone_2{
+    left: 0;
+  }
+
+  div.pl-header-city :nth-child(2){
+    top: -5px;
+  }
+
+  .tt-header-holder .tt-col__objects > :not(:first-child){
+    margin-left: 10px;
+  }
 }

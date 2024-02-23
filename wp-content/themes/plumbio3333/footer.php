@@ -25,7 +25,7 @@ $page_footer_class = get_post_meta( get_the_ID(), 'plumbio_core_page_footer_clas
 	if ( $copyright ) {
 		echo wp_kses( $copyright, 'code_contxt' );
 	} else {
-		esc_html_e( '&copy; Copyright 2021 by Plumbio', 'plumbio' );
+		esc_html_e( '&copy; Copyright 2024 by Plumbio', 'plumbio' );
 	}
 	?>
 	</div>

@@ -512,3 +512,23 @@ function aioseo_filter_robots_meta( $attributes ) {
    }
    return $attributes;
 }
+
+/* --- custom redirect  ------ */
+function custom_redirect_pages() {
+  // var_dump(get_queried_object());
+  // echo "<br>";
+  // echo get_the_title();
+  // global $wp_query;
+  // echo $wp_query->post->ID;
+  // global $wp_query;
+  //   $theid = intval($wp_query->queried_object->ID);
+  //   echo $theid;
+
+  // if (is_page('/coupons')) {
+  //     wp_redirect(home_url('/about-us/coupons/'));
+  //     exit();
+  // }
+
+  // $current_url = home_url(add_query_arg(array(), $wp->request));
+}
+add_action('template_redirect', 'custom_redirect_pages');
